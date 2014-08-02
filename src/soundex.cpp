@@ -27,7 +27,10 @@ string Soundex::getTail(const string &word) {
 string Soundex::encodeString(const string &word) {
     string encoded = "";
     for (char c : word) {
-        encoded += encodeChar(c);
+        string nextLetter = encodeChar(c);
+        if (nextLetter != string(1, encoded.back())) {
+            encoded += nextLetter;
+        }
     }
     return encoded;
 }

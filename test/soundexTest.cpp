@@ -46,7 +46,7 @@ TEST(SoundexEncode, ResizeWord) {
     ASSERT_EQ(expectedVal, actualVal);
 }
 
-TEST(SoundexEncode, DISABLED_EncodeAdjacentCharacters) {
+TEST(SoundexEncode, EncodeAdjacentCharacters) {
     Soundex soundex;
     string expectedVal = "A123";
 
