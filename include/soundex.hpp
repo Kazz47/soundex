@@ -10,6 +10,8 @@ public:
     string encode(const string &word);
 
 private:
+    const unsigned int ENCODING_SIZE = 4;
+
     string zeroPad(const string &word);
 };
 

@@ -9,3 +9,12 @@ TEST(SoundexEncode, RetainFirstLetter) {
 
     ASSERT_EQ(expectedVal, actualVal);
 }
+
+TEST(SoundexEncode, ZeroPad) {
+    Soundex soundex;
+    string expectedVal = "A000";
+
+    string actualVal = soundex.encode("A");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
