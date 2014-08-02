@@ -19,10 +19,9 @@ public:
 private:
     string getFirstChar(const string &word);
     string getTail(const string &word);
-    string dropVowelLikeChars(const string &word);
     string encodeString(const string &word);
     string encodeChar(const char &c);
-    string zeroPad(const string &word);
+    string resize(const string &word);
 };
 
 #endif //SOUNDEX_H

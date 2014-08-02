@@ -36,3 +36,21 @@ TEST(SoundexEncode, EncodeCharacters) {
 
     ASSERT_EQ(expectedVal, actualVal);
 }
+
+TEST(SoundexEncode, ResizeWord) {
+    Soundex soundex;
+    string expectedVal = "A123";
+
+    string actualVal = soundex.encode("aBcDbCd");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
+
+TEST(SoundexEncode, DISABLED_EncodeAdjacentCharacters) {
+    Soundex soundex;
+    string expectedVal = "A123";
+
+    string actualVal = soundex.encode("Abfcgdt");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
