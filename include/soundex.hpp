@@ -10,7 +10,7 @@ using namespace std;
 
 class Soundex {
     static const unsigned int ENCODING_SIZE = 4;
-    const string CHARS_TO_DROP = "AEIOUYHW";
+    static const string CHARS_TO_DROP;
 
 public:
     string encode(const string &word);

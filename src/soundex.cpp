@@ -1,5 +1,7 @@
 #include "soundex.hpp"
 
+const string Soundex::CHARS_TO_DROP = "AEIOUYHW";
+
 string Soundex::encode(const string &word) {
     string encoded = getFirstChar(word) + dropVowelLikeChars(getTail(word));
     return zeroPad(encoded);
