@@ -18,3 +18,13 @@ TEST(SoundexEncode, ZeroPad) {
 
     ASSERT_EQ(expectedVal, actualVal);
 }
+
+TEST(SoundexEncode, RemoveVowelLikeChars) {
+    Soundex soundex;
+    string expectedVal = "A000";
+
+    string actualVal = soundex.encode("Aaeiouyh");
+    actualVal = soundex.encode("AAEIOUYH");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
