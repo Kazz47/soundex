@@ -6,12 +6,12 @@
 using namespace std;
 
 class Soundex {
+    static const unsigned int ENCODING_SIZE = 4;
+
 public:
     string encode(const string &word);
 
 private:
-    const unsigned int ENCODING_SIZE = 4;
-
     string zeroPad(const string &word);
 };
 
