@@ -50,7 +50,25 @@ TEST(SoundexEncode, EncodeAdjacentCharacters) {
     Soundex soundex;
     string expectedVal = "A123";
 
-    string actualVal = soundex.encode("Abfcgdt");
+    string actualVal = soundex.encode("AbFcGdT");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
+
+TEST(SoundexEncode, EncodeOnceSeparatedByH) {
+    Soundex soundex;
+    string expectedVal = "A123";
+
+    string actualVal = soundex.encode("AbHfChGdHt");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
+
+TEST(SoundexEncode, EncodeOnceSeparatedByW) {
+    Soundex soundex;
+    string expectedVal = "A123";
+
+    string actualVal = soundex.encode("AbWfCwGdWt");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
