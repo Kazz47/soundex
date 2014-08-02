@@ -3,8 +3,6 @@ include(ExternalProject)
 # Add gtest
 ExternalProject_Add(googletest
     GIT_REPOSITORY https://github.com/smarr/googletest.git
-    CMAKE_ARGS -DCMAKE_CXX_FLAGS=${MSVC_COMPILER_DEFS}
-               -Dgtest_force_shared_crt=ON
     PREFIX "${CMAKE_CURRENT_BINARY_DIR}"
     # Disable install step
     INSTALL_COMMAND ""
