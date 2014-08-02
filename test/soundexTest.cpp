@@ -23,8 +23,16 @@ TEST(SoundexEncode, RemoveVowelLikeChars) {
     Soundex soundex;
     string expectedVal = "A000";
 
-    string actualVal = soundex.encode("Aaeiouyh");
-    actualVal = soundex.encode("AAEIOUYH");
+    string actualVal = soundex.encode("AaEiOuYh");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
+
+TEST(SoundexEncode, EncodeCharacters) {
+    Soundex soundex;
+    string expectedVal = "A123";
+
+    string actualVal = soundex.encode("aBcD");
 
     ASSERT_EQ(expectedVal, actualVal);
 }

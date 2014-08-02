@@ -3,7 +3,7 @@
 
 #include <cassert>
 #include <string>
-#include <vector>
+#include <unordered_map>
 #include <locale>
 
 using namespace std;
@@ -11,6 +11,7 @@ using namespace std;
 class Soundex {
     static const unsigned int ENCODING_SIZE = 4;
     static const string CHARS_TO_DROP;
+    static const unordered_map<char, char> CHAR_MAP;
 
 public:
     string encode(const string &word);
@@ -19,6 +20,8 @@ private:
     string getFirstChar(const string &word);
     string getTail(const string &word);
     string dropVowelLikeChars(const string &word);
+    string encodeString(const string &word);
+    string encodeChar(const char &c);
     string zeroPad(const string &word);
 };
 
