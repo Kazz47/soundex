@@ -1,4 +1,6 @@
-#include "soundex.h"
+#include "soundex.hpp"
 
-class Soundex {
-};
+string Soundex::encode(const string &word) {
+    string encoded = word;
+    return encoded;
+}
