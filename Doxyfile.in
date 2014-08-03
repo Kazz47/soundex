@@ -4,7 +4,7 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = Soundex Name Indexer
 PROJECT_NUMBER         = 0.1.0
-OUTPUT_DIRECTORY       = Documentation
+OUTPUT_DIRECTORY       = docs
 CREATE_SUBDIRS         = YES
 OUTPUT_LANGUAGE        = English
 BRIEF_MEMBER_DESC      = YES
