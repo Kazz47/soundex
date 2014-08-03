@@ -1,7 +1,12 @@
 include_directories(${GTEST_INCLUDE_DIRS} ${INCLUDE_DIRS})
 
+# Testing Parameters
+set(GTEST_SHUFFLE 1)
+# set(GTEST_RANDOM_SEED 0-9999)
+
 set(test_sources
     soundexTest
+    soundexFuzz
 )
 
 add_executable(tests ${test_sources})
@@ -19,7 +24,7 @@ target_link_libraries(tests
 # Run the Tests
 add_custom_command(
     OUTPUT testOut.dat
-    COMMAND tests
+    COMMAND tests --gtest_shuffle
     COMMENT "Running Tests"
 )
 

@@ -15,10 +15,6 @@ string Soundex::encode(const string &word) {
     return resize(encoded);
 }
 
-string Soundex::getFirstChar(const string &word) {
-    return string(1, toupper(word.at(0)));
-}
-
 string Soundex::encodeString(const string &word) {
     string encoded = string(1, toupper(word[0]));
     char prevChar = 0;
