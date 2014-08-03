@@ -2,6 +2,7 @@ Soundex
 ===
 
 Indexing algorithm for words based on American English phonetics.
+More information can be found on [Wikipedia](http://en.wikipedia.org/wiki/Soundex).
 
 
 Build Status
