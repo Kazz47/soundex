@@ -2,73 +2,73 @@
 #include "soundex.hpp"
 
 TEST(SoundexEncode, RetainFirstLetter) {
-    Soundex soundex;
     string expectedVal = "A000";
 
-    string actualVal = soundex.encode("A000");
+    string actualVal = Soundex::encode("A000");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
 
 TEST(SoundexEncode, ZeroPad) {
-    Soundex soundex;
     string expectedVal = "A000";
 
-    string actualVal = soundex.encode("A");
+    string actualVal = Soundex::encode("A");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
 
 TEST(SoundexEncode, RemoveVowelLikeChars) {
-    Soundex soundex;
     string expectedVal = "A000";
 
-    string actualVal = soundex.encode("AaEiOuYh");
+    string actualVal = Soundex::encode("AaEiOuYh");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
 
 TEST(SoundexEncode, EncodeCharacters) {
-    Soundex soundex;
     string expectedVal = "A123";
 
-    string actualVal = soundex.encode("aBcD");
+    string actualVal = Soundex::encode("aBcD");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
 
 TEST(SoundexEncode, ResizeWord) {
-    Soundex soundex;
     string expectedVal = "A123";
 
-    string actualVal = soundex.encode("aBcDbCd");
+    string actualVal = Soundex::encode("aBcDbCd");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
 
 TEST(SoundexEncode, EncodeAdjacentCharacters) {
-    Soundex soundex;
     string expectedVal = "A123";
 
-    string actualVal = soundex.encode("AbFcGdT");
+    string actualVal = Soundex::encode("AbFcGdT");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
 
 TEST(SoundexEncode, EncodeOnceSeparatedByH) {
-    Soundex soundex;
     string expectedVal = "A123";
 
-    string actualVal = soundex.encode("AbHfChGdHt");
+    string actualVal = Soundex::encode("AbHfChGdHt");
 
     ASSERT_EQ(expectedVal, actualVal);
 }
 
 TEST(SoundexEncode, EncodeOnceSeparatedByW) {
-    Soundex soundex;
     string expectedVal = "A123";
 
-    string actualVal = soundex.encode("AbWfCwGdWt");
+    string actualVal = Soundex::encode("AbWfCwGdWt");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
+
+TEST(SoundexEncode, EncodeTwiceSeparatedByVowel) {
+    string expectedVal = "A112";
+
+    string actualVal = Soundex::encode("AbAfCiGdYt");
 
     ASSERT_EQ(expectedVal, actualVal);
 }

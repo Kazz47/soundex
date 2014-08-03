@@ -1,6 +1,6 @@
 #include "soundex.hpp"
 
-const string Soundex::CHARS_TO_DROP = "AEIOUYHW";
+const vector<char> Soundex::VOWELS = {'A', 'E', 'I', 'O', 'U', 'Y'};
 const unordered_map<char, char> Soundex::CHAR_MAP = {
     {'B', '1'}, {'F', '1'}, {'P', '1'}, {'V', '1'},
     {'C', '2'}, {'G', '2'}, {'J', '2'}, {'K', '2'}, {'Q', '2'}, {'S', '2'}, {'Z', '2'}, {'Z', '2'},
@@ -26,11 +26,13 @@ string Soundex::getTail(const string &word) {
 
 string Soundex::encodeString(const string &word) {
     string encoded = "";
+    char prevChar = NULL;
     for (char c : word) {
         string nextLetter = encodeChar(c);
-        if (nextLetter != string(1, encoded.back())) {
+        if (isVowel(prevChar) || nextLetter != string(1, encoded.back())) {
             encoded += nextLetter;
         }
+        prevChar = c;
     }
     return encoded;
 }
@@ -52,4 +54,13 @@ string Soundex::resize(const string &word)  {
        newWord = newWord + string(zerosNeeded, '0');
     }
     return newWord;
+}
+
+bool Soundex::isVowel(const char &c) {
+    for (char vowel : VOWELS) {
+        if (c == vowel) {
+            return true;
+        }
+    }
+    return false;
 }
