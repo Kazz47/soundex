@@ -5,14 +5,13 @@ const unordered_map<char, char> Soundex::CHAR_MAP = {
     {'B', '1'}, {'F', '1'}, {'P', '1'}, {'V', '1'},
     {'C', '2'}, {'G', '2'}, {'J', '2'}, {'K', '2'}, {'Q', '2'}, {'S', '2'}, {'Z', '2'}, {'Z', '2'},
     {'D', '3'}, {'T', '3'},
-    {'l', '4'},
-    {'m', '5'}, {'n', '5'},
-    {'r', '6'}
+    {'L', '4'},
+    {'M', '5'}, {'N', '5'},
+    {'R', '6'}
 };
 
 string Soundex::encode(const string &word) {
-    string encoded = getFirstChar(word);
-    encoded += encodeString(getTail(word));
+    string encoded = encodeString(word);
     return resize(encoded);
 }
 
@@ -20,17 +19,16 @@ string Soundex::getFirstChar(const string &word) {
     return string(1, toupper(word.at(0)));
 }
 
-string Soundex::getTail(const string &word) {
-    return word.substr(1);
-}
-
 string Soundex::encodeString(const string &word) {
-    string encoded = "";
-    char prevChar = NULL;
-    for (char c : word) {
-        string nextLetter = encodeChar(c);
-        if (isVowel(prevChar) || nextLetter != string(1, encoded.back())) {
-            encoded += nextLetter;
+    string encoded = string(1, toupper(word[0]));
+    char prevChar = 0;
+    string prevEncoding = encodeChar(encoded[0]);
+    for (int i = 1; i < word.length(); i++) {
+        char c = toupper(word[i]);
+        string nextEncoding = encodeChar(c);
+        if (nextEncoding != "" && (isVowel(prevChar) || nextEncoding != prevEncoding)) {
+            encoded += nextEncoding;
+            prevEncoding = nextEncoding;
         }
         prevChar = c;
     }
@@ -38,7 +36,7 @@ string Soundex::encodeString(const string &word) {
 }
 
 string Soundex::encodeChar(const char &c) {
-    unordered_map<char, char>::const_iterator it = CHAR_MAP.find(toupper(c));
+    unordered_map<char, char>::const_iterator it = CHAR_MAP.find(c);
     if (it != CHAR_MAP.end()) {
         return string(1, it->second);
     }

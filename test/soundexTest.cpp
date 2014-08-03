@@ -72,3 +72,39 @@ TEST(SoundexEncode, EncodeTwiceSeparatedByVowel) {
 
     ASSERT_EQ(expectedVal, actualVal);
 }
+
+TEST(SoundexEncode, RobertAndRupert) {
+    string expectedVal = "R163";
+
+    string firstVal = Soundex::encode("Robert");
+    string secondVal = Soundex::encode("Rupert");
+
+    ASSERT_EQ(expectedVal, firstVal);
+    ASSERT_EQ(expectedVal, secondVal);
+}
+
+TEST(SoundexEncode, AshcraftAndAshcroft) {
+    string expectedVal = "A261";
+
+    string firstVal = Soundex::encode("Ashcraft");
+    string secondVal = Soundex::encode("Ashcroft");
+
+    ASSERT_EQ(expectedVal, firstVal);
+    ASSERT_EQ(expectedVal, secondVal);
+}
+
+TEST(SoundexEncode, Tymczak) {
+    string expectedVal = "T522";
+
+    string actualVal = Soundex::encode("Tymczak");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}
+
+TEST(SoundexEncode, Pfister) {
+    string expectedVal = "P236";
+
+    string actualVal = Soundex::encode("Pfister");
+
+    ASSERT_EQ(expectedVal, actualVal);
+}

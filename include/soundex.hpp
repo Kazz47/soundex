@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include <locale>
 
 using namespace std;
 
@@ -19,7 +18,6 @@ public:
 
 private:
     static string getFirstChar(const string &word);
-    static string getTail(const string &word);
     static string encodeString(const string &word);
     static string encodeChar(const char &c);
     static string resize(const string &word);
