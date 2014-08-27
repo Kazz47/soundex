@@ -1,7 +1,4 @@
 language: cpp
-os:
- - linux
- - osx
 compiler:
  - clang
  - gcc
@@ -14,9 +11,7 @@ deploy:
     provider: releases
     api_key:
         secure: TvUi53CPTGdVKfDlhdinNBMsjAlBOM1DrPRsKQ7xODW07lNoPp5/Ta8rbc75SFjUdKoKnIVhAPAkzBgkjhzaZ0hThPp622yB2NHAt1ss8hs+MeGsbKN8ZOTEeaIMlvrXFuBkcAryjZtWt4aFb+ZG4STI/yfXpn0eklhbLhKxX3g=
-    file:
-     - 'build/lib/libsoundex_shared.so'
-     - 'build/lib/libsoundex_static.a'
+    file: "./build/lib/libsoundex_shared.so"
     skip_cleanup: true
     on:
         repo: Kazz47/soundex
