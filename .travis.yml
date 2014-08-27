@@ -18,7 +18,8 @@ deploy:
     provider: releases
     api_key:
         secure: SwyvyEKGJqAYXhPVCkRVQUpegUsgqY694WqkH9R9piRwyY3lPqCRd6wOPdx2h65hbCsmw4Bua5PzUpEPq2CtxzWcEcD+t1SyLkPhJ6jzBgcpkIWVIVF1rCEYlQ/nxt9pULZLFKeVQALizOccEiim8OLsZcZjMDYAf9aZMw+Yumw=
-    file: test
+    file: "build/lib/libsounded_shared.so"
+    skip_cleanup: true
     on:
         tags: true
         all_branches: true
