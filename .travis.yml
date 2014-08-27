@@ -11,12 +11,3 @@ script: make
 #See travis-ci/travis-ci#2510
 before_deploy:
  - git fetch --tags
-deploy:
-    provider: releases
-    api_key:
-        secure: TvUi53CPTGdVKfDlhdinNBMsjAlBOM1DrPRsKQ7xODW07lNoPp5/Ta8rbc75SFjUdKoKnIVhAPAkzBgkjhzaZ0hThPp622yB2NHAt1ss8hs+MeGsbKN8ZOTEeaIMlvrXFuBkcAryjZtWt4aFb+ZG4STI/yfXpn0eklhbLhKxX3g=
-    file: "./build/lib/libsoundex_shared.so"
-    skip_cleanup: true
-    on:
-        tags: true
-        all_branches: true
