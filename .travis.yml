@@ -7,6 +7,10 @@ before_script:
  - cd build
  - cmake ..
 script: make
+
+#See travis-ci/travis-ci#2510
+before_deploy:
+ - git fetch --tags
 deploy:
     provider: releases
     api_key:
