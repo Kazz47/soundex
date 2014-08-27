@@ -13,6 +13,6 @@ deploy:
         secure: TvUi53CPTGdVKfDlhdinNBMsjAlBOM1DrPRsKQ7xODW07lNoPp5/Ta8rbc75SFjUdKoKnIVhAPAkzBgkjhzaZ0hThPp622yB2NHAt1ss8hs+MeGsbKN8ZOTEeaIMlvrXFuBkcAryjZtWt4aFb+ZG4STI/yfXpn0eklhbLhKxX3g=
     file: "./build/lib/libsoundex_shared.so"
     skip_cleanup: true
-    tag_name: v0.1
+    tag_name: "v0.1"
     on:
         repo: Kazz47/soundex
