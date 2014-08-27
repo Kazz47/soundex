@@ -1,13 +1,23 @@
 language: cpp
+
 compiler:
- - clang
- - gcc
+- clang
+- gcc
+
 before_script:
- - mkdir build
- - cd build
- - cmake ..
+- mkdir build
+- cd build
+- cmake ..
+
 script: make
 
-#See travis-ci/travis-ci#2510
 before_deploy:
- - git fetch --tags
+- git fetch --tags
+
+deploy:
+  provider: releases
+  api_key:
+    secure: SwyvyEKGJqAYXhPVCkRVQUpegUsgqY694WqkH9R9piRwyY3lPqCRd6wOPdx2h65hbCsmw4Bua5PzUpEPq2CtxzWcEcD+t1SyLkPhJ6jzBgcpkIWVIVF1rCEYlQ/nxt9pULZLFKeVQALizOccEiim8OLsZcZjMDYAf9aZMw+Yumw=
+  file: test
+  on:
+    repo: Kazz47/soundex
